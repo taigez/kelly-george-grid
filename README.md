@@ -49,7 +49,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
-- Prof. Kelly George for the Repertory Grid technique and its application in career decision-making.
+- Prof. George Kelly for the Repertory Grid technique and its application in career decision-making.
 - The open-source community for their valuable contributions and libraries used in this project.
 
 ## Contact
