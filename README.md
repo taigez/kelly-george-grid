@@ -19,7 +19,7 @@ This project is a web application that allows users to take a survey based on Pr
 ## Installation
 
 1. Clone the repository:
-git clone https://github.com/taigez/repertory-grid-careers.git
+git clone https://github.com/taigez/kelly-george-grid.git
 
 2. Navigate to the project directory:
 cd kelly-george-grid
