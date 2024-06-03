@@ -387,7 +387,7 @@ function collectCareerData() {
 
   if (isValid) {
       // Log the collected data
-      console.log("Careers:", CAREERS);
+      // console.log("Careers:", CAREERS);
       document.getElementById('career_qns').style.display = 'none';
       document.getElementById('trait_qns').style.display = 'block';
   }
@@ -418,7 +418,7 @@ function extractRankingOrder() {
   IMPORTANCE = [];
 
   const order = sortableImportance.toArray();
-  console.log('Current order:', order);
+  // console.log('Current order:', order);
 
   const traitOrderMap = new Map();
   order.forEach((trait, index) => {
@@ -430,7 +430,7 @@ function extractRankingOrder() {
     IMPORTANCE.push(parseInt(importanceValue));
   });
 
-  console.log("Importance:", IMPORTANCE);
+  // console.log("Importance:", IMPORTANCE);
 
   generateCareerRatings(CAREERS, TRAITS);
   document.getElementById('trait_impt').style.display = 'none';
@@ -451,7 +451,7 @@ function collectTraitData() {
 
   if (isValid) {
       // Log the collected data
-      console.log("Traits:", TRAITS);
+      // console.log("Traits:", TRAITS);
       generateImportanceGrid(TRAITS);
       document.getElementById('trait_qns').style.display = 'none';
       document.getElementById('trait_impt').style.display = 'block';
@@ -592,7 +592,7 @@ function generateCareerRatings(careers, traits) {
 
 
 function collectRatingData(careerIndex) {
-  console.log("Career Index:", careerIndex);
+  // console.log("Career Index:", careerIndex);
   if (RATINGS.length == parseInt(careerIndex) * TRAITS.length) {
     return;
   };
@@ -601,7 +601,7 @@ function collectRatingData(careerIndex) {
       const selectedValue = document.querySelector(`input[name="rating${careerIndex}-${i}"]:checked`).value;
       RATINGS.push(selectedValue);
   }
-  console.log("Ratings:", RATINGS);
+  // console.log("Ratings:", RATINGS);
 
   if (RATINGS.length == CAREERS.length * TRAITS.length) {
       calculateAndDisplayRatings(RATINGS, IMPORTANCE, CAREERS);
@@ -615,9 +615,9 @@ function calculateAndDisplayRatings(ratings, importance, careers) {
   const weightedScores = [];
   const unweightedScores = [];
 
-  console.log("Ratings:", ratings);
-  console.log("Importance:", importance);
-  console.log("Careers:", careers);
+  // console.log("Ratings:", ratings);
+  // console.log("Importance:", importance);
+  // console.log("Careers:", careers);
 
   for (let i = 0; i < careers.length; i++) {
       const careerRatings = ratings.slice(i * TRAITS.length, (i + 1) * TRAITS.length);
