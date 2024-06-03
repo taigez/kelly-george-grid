@@ -298,7 +298,7 @@ function populateCareersForm() {
       const careerInput = careerGroup.querySelector('input');
 
       careerLabel.setAttribute('for', `career${i}`);
-      careerLabel.textContent = `Career ${i}:`;
+      careerLabel.textContent = `职业 ${i}:`;
 
       careerInput.setAttribute('id', `career${i}`);
       careerInput.setAttribute('name', `career${i}`);
@@ -320,7 +320,7 @@ function populateTraitsForm() {
 
 
       traitLabel.setAttribute('for', `trait${i}`);
-      traitLabel.textContent = `Trait ${i}:`;
+      traitLabel.textContent = `特质 ${i}:`;
 
       traitInput.setAttribute('id', `trait${i}`);
       traitInput.setAttribute('name', `trait${i}`);
@@ -472,8 +472,8 @@ function generateCareerRatings(careers, traits) {
       const sectionTitle = document.createElement('div');
       sectionTitle.className = 'section-title';
       sectionTitle.innerHTML = `
-          <h2>Career Ratings</h2>
-          <p>Rate each career based on the extent it satisfies the trait</p>
+          <h2>职业评分</h2>
+          <p>根据特质符合程度给职业评分</p>
       `;
       careerContainer.appendChild(sectionTitle);
 
@@ -510,7 +510,7 @@ function generateCareerRatings(careers, traits) {
       li.appendChild(careerLink);
 
       const supportText = document.createElement('p');
-      supportText.textContent = 'Rate the jobs based on your qualities! Think about the job listed, does this job have each of the qualities? 1 = not true, 5 = very true.';
+      supportText.textContent = '请根据不同特质，给每个职业评分。请思考下面列出的职业，这个职业有多符合各个特质？1 = 非常不符合，5 = 非常符合';
       li.appendChild(supportText);
 
       const form = document.createElement('form');
@@ -570,7 +570,7 @@ function generateCareerRatings(careers, traits) {
       const nextButton = document.createElement('button');
       nextButton.type = 'button';
       nextButton.className = `btn btn-next-rating-${careerIndex + 1}`;
-      nextButton.textContent = 'Next';
+      nextButton.textContent = '下一步';
       buttonWrapper.appendChild(nextButton);
       form.appendChild(buttonWrapper);
       li.appendChild(form);

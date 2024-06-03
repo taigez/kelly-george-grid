@@ -105,7 +105,7 @@
   
           <div class="section-title">
             <h2>About</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <p>George Alexander Kelly was an American psychologist, therapist, educator and personality theorist. He is considered a founding figure in the history of clinical psychology and is best known for his theory of personality, personal construct psychology.</p>
           </div>
   
           <div class="row justify-content-center">
@@ -135,12 +135,27 @@
           <h2>Career Identification</h2>
           <p>Write down the first 10 career position that cames to mind, in any order.</p>
         </div>
+        
+          
+
 
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up">
+              <div class="progress" role="progressbar" aria-label="Success example" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar bg-success" style="width: 10%">10%</div>
+              </div>
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">What positions are you thinking about?</a>
-              
+              <p>
+                Think of some jobs! They can be: 
+                jobs you have thought of doing anytime in your life; 
+                jobs you have done; 
+                jobs you might like to do to “get away from it all”; 
+                jobs done by members of the family; 
+                jobs you would hate; jobs you see others doing; 
+                jobs you wanted to create… 
+                You may list up to 10 jobs in the following boxes. Please brainstorm!
+              </p>
               <form id="careers-form" class="needs-validation-career" novalidate>
                 <div class="form-group">
                     <label for="career1">Career 1:</label>
@@ -171,8 +186,19 @@
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up">
+              <div class="progress" role="progressbar" aria-label="Success example" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar bg-success" style="width: 20%">20%</div>
+              </div>
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">What traits are you thinking about?</a>
-              
+              <p>
+                Now, list 10 qualities of jobs. These qualities should be important to you. 
+                You may imagine yourself in the future, what are the necessary qualities or traits for you to be committed to and happy with this job? 
+                This is very subjective and everyone has their preferences in job qualities. 
+                You may list important qualities regarding its characteristics 
+                (e.g., engaging in social interactions, individual work, dealing with numbers), 
+                experience (e.g., fun, exciting, predictable), the life it can provide (e.g., earning, social status, acceptance from family)... 
+                Be honest with yourself and do not judge yourself with whatever you listed. 
+              </p>
               <form id="traits-form" class="needs-validation-trait" novalidate>
                 <div class="form-group">
                     <label for="trait1">Trait 1:</label>
@@ -198,10 +224,21 @@
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Rate all traits from 1 to 5.</br> 1 being not important v.s. 5 being very important</a>
-              
+              <div class="progress" role="progressbar" aria-label="Success example" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar bg-success" style="width: 30%">30%</div>
+              </div>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">
+                Reorder the traits based on their importance
+              </a>
+              <p>
+                Now, please order the qualities! Drag the qualities and order them based on their importance. 
+                The top quality is the most important one to you, and the bottom one is the least important.
+              </p>
               <form id="importance-form" class="needs-validation-impt" novalidate>
-                <div id="importance-grid"></div>
+              <h3 class="text-center" style="margin: 10px;">Most Important</h3>
+                <div id="importance-bars">
+                </div>
+              <h3 class="text-center" style="margin: 10px;">Least Important</h3>
               </form>
               <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-next-importance" >Next</button>
@@ -220,6 +257,17 @@
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up">
+              <h4>Congratulations on finishing the survey! </h4>
+              <p>
+                Here are the results! We gave the weighted and unweighted ranks for all the jobs you provided. 
+                The first rank is the weighted rank based on your ordering process. The top jobs on the weighted rank are those with more important qualities. Theoretically, they are the jobs you will love the most! Also, we provided an unweighted rank below by summing up your ratings for every job. 
+                The top ones are the jobs that have the highest average ratings on all qualities. 
+                If every quality is similarly important to you, you may refer to the unweighted rank,
+                 but if you strongly prefer some qualities over the other, you may refer to the weighted rank.
+              </p>
+            </li>
+            <li data-aos="fade-up">
+              
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Weighted</a>
               <div id="weighted-careers">
                 <table class="table">
@@ -301,6 +349,7 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
