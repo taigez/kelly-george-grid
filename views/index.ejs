@@ -160,6 +160,7 @@
               <form id="careers-form" class="needs-validation-career" novalidate>
                 <div class="form-group">
                     <label for="career1">Career 1:</label>
+
                     <input type="text" class="form-control" id="career1" name="career1" required>
                     <div class="invalid-feedback">
                       Please provide a career position.
@@ -168,8 +169,12 @@
                 
                 
               </form>
+              <div class="d-flex justify-content-center gap-2">
+                <button type="button" id="add-career" class="btn btn-primary">Add Career</button>
+                <button type="button" id="remove-career" class="btn btn-primary">Remove Career</button>
+              </div>
               <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-next-career" >Next</button>
+                <button type="button" class="btn btn-special btn-next-career" >Next</button>
               </div>  
               
             </li>
@@ -209,8 +214,12 @@
                     </div>  
                 </div>
               </form>
+              <div class="d-flex justify-content-center gap-2">
+                <button type="button" id="add-trait" class="btn btn-primary">Add Trait</button>
+                <button type="button" id="remove-trait" class="btn btn-primary">Remove Trait</button>
+              </div>
               <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-next-trait" >Next</button>
+                <button type="button" class="btn btn-special btn-next-trait" >Next</button>
               </div> 
             </li>
           </ul>
@@ -242,7 +251,7 @@
               <h3 class="text-center" style="margin: 10px;">Least Important</h3>
               </form>
               <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-next-importance" >Next</button>
+                <button type="button" class="btn btn-special btn-next-importance" >Next</button>
               </div> 
             </li>
           </ul>

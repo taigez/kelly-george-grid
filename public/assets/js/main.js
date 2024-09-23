@@ -7,7 +7,8 @@ let RATINGS = [];
 
 let DEFAULT_CAREERS = 10;
 let DEFAULT_TRAITS = 10;
-
+let Current_Career = 1;
+let Current_Trait = 1;
 
 (function() {
   "use strict";
@@ -274,6 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   document.querySelector('.btn-get-started').addEventListener('click', function(event) {
+    populateCareersForm();
     document.getElementById('team').style.display = 'none';
     document.getElementById('faq').style.display = 'block';
     document.getElementById('career_qns').style.display = 'block';
@@ -283,50 +285,87 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  document.getElementById('add-career').addEventListener('click', addCareerInput);
+  document.getElementById('remove-career').addEventListener('click', removeCareerInput);
 
-  populateCareersForm();
+  document.getElementById('add-trait').addEventListener('click', addTraitInput);
+  document.getElementById('remove-trait').addEventListener('click', removeTraitInput);
+
   populateTraitsForm();
 });
 
-function populateCareersForm() {
+function addCareerInput() {
+  Current_Career++;
   const careersForm = document.getElementById('careers-form');
   const careerTemplate = careersForm.querySelector('.form-group');
+  const careerGroup = careerTemplate.cloneNode(true);
+  const careerLabel = careerGroup.querySelector('label');
+  const careerInput = careerGroup.querySelector('input');
+
+  careerLabel.setAttribute('for', `career${Current_Career}`);
+  careerLabel.textContent = `Career ${Current_Career}:`;
+
+  careerInput.setAttribute('id', `career${Current_Career}`);
+  careerInput.setAttribute('name', `career${Current_Career}`);
+  careerInput.value = '';
+
+  careersForm.appendChild(careerGroup);
+  
+}
+
+function removeCareerInput() {
+  if (Current_Career > 3) {
+    const careersForm = document.getElementById('careers-form');
+    careersForm.removeChild(careersForm.lastChild);
+    Current_Career--;
+    window.scrollTo(0, document.body.scrollHeight);
+  } else {
+    alert('You need to have at least 3 careers!');
+  }
+}
+
+function populateCareersForm() {
 
   for (let i = 2; i <= DEFAULT_CAREERS; i++) {
-      const careerGroup = careerTemplate.cloneNode(true);
-      const careerLabel = careerGroup.querySelector('label');
-      const careerInput = careerGroup.querySelector('input');
-
-      careerLabel.setAttribute('for', `career${i}`);
-      careerLabel.textContent = `Career ${i}:`;
-
-      careerInput.setAttribute('id', `career${i}`);
-      careerInput.setAttribute('name', `career${i}`);
-      careerInput.value = '';
-
-      careersForm.appendChild(careerGroup);
+    addCareerInput();
   }
 
 }
 
-function populateTraitsForm() {
+function addTraitInput() {
+  Current_Trait++;
   const traitsForm = document.getElementById('traits-form');
   const traitTemplate = traitsForm.querySelector('.form-group');
+  const traitGroup = traitTemplate.cloneNode(true);
+  const traitLabel = traitGroup.querySelector('label[for^="trait"]');
+  const traitInput = traitGroup.querySelector('input[id^="trait"]');
+  traitLabel.setAttribute('for', `trait${Current_Trait}`);
+  traitLabel.textContent = `Trait ${Current_Trait}:`;
+
+  traitInput.setAttribute('id', `trait${Current_Trait}`);
+  traitInput.setAttribute('name', `trait${Current_Trait}`);
+  traitInput.value = '';
+
+  traitsForm.appendChild(traitGroup);
+
+}
+
+function removeTraitInput() {
+  if (Current_Trait > 3) {
+    const traitsForm = document.getElementById('traits-form');
+    traitsForm.removeChild(traitsForm.lastChild);
+    Current_Trait--;
+    window.scrollTo(0, document.body.scrollHeight);
+  } else {
+    alert('You need to have at least 3 traits!');
+  }
+}
+
+function populateTraitsForm() {
+
 
   for (let i = 2; i <= DEFAULT_TRAITS; i++) {
-      const traitGroup = traitTemplate.cloneNode(true);
-      const traitLabel = traitGroup.querySelector('label[for^="trait"]');
-      const traitInput = traitGroup.querySelector('input[id^="trait"]');
-
-
-      traitLabel.setAttribute('for', `trait${i}`);
-      traitLabel.textContent = `Trait ${i}:`;
-
-      traitInput.setAttribute('id', `trait${i}`);
-      traitInput.setAttribute('name', `trait${i}`);
-      traitInput.value = '';
-
-      traitsForm.appendChild(traitGroup);
+    addTraitInput();
   }
 }
 
@@ -376,7 +415,7 @@ function collectCareerData() {
   let isValid = true;
   CAREERS = [];
   // Collect careers (elements)
-  for (let i = 1; i <= DEFAULT_CAREERS; i++) {
+  for (let i = 1; i <= Current_Career; i++) {
       const career = document.getElementById(`career${i}`).value.trim();
       if (career === '') {
           isValid = false;
@@ -440,7 +479,7 @@ function extractRankingOrder() {
 function collectTraitData() {
   let isValid = true;
   TRAITS = [];
-  for (let i = 1; i <= DEFAULT_TRAITS; i++) {
+  for (let i = 1; i <= Current_Trait; i++) {
       const career = document.getElementById(`trait${i}`).value.trim();
       if (career === '') {
           isValid = false;
@@ -569,7 +608,7 @@ function generateCareerRatings(careers, traits) {
       buttonWrapper.className = 'd-flex justify-content-center';
       const nextButton = document.createElement('button');
       nextButton.type = 'button';
-      nextButton.className = `btn btn-next-rating-${careerIndex + 1}`;
+      nextButton.className = `btn btn-special btn-next-rating-${careerIndex + 1}`;
       nextButton.textContent = 'Next';
       buttonWrapper.appendChild(nextButton);
       form.appendChild(buttonWrapper);

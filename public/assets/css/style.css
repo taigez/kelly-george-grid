@@ -717,7 +717,7 @@ section {
   background-color: #f9ede6;
 }
 
-#faq .btn {
+.btn-special {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -731,7 +731,7 @@ section {
   background: #e6505f;
 }
 
-#faq .btn:hover {
+.btn-special:hover {
   background: #de3e4e;
 }
 
