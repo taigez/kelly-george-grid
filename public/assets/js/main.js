@@ -479,7 +479,7 @@ function extractRankingOrder() {
     IMPORTANCE.push(parseInt(importanceValue));
   });
 
-  // console.log("Importance:", IMPORTANCE);
+  console.log("Importance:", IMPORTANCE);
 
   generateCareerRatings(CAREERS, TRAITS);
   document.getElementById('trait_impt').style.display = 'none';
@@ -672,7 +672,7 @@ function calculateAndDisplayRatings(ratings, importance, careers) {
       const careerRatings = ratings.slice(i * TRAITS.length, (i + 1) * TRAITS.length);
       const weightedScore = careerRatings.reduce((sum, rating, index) => sum + parseInt(rating) * importance[index], 0);
       const unweightedScore = careerRatings.reduce((sum, rating) => sum + parseInt(rating), 0);
-
+      console.log("Career:", careers[i], "Weighted Score:", weightedScore, "Unweighted Score:", unweightedScore);
       weightedScores.push({ career: careers[i], score: weightedScore });
       unweightedScores.push({ career: careers[i], score: unweightedScore });
   }
@@ -722,6 +722,6 @@ function calculateAndDisplayRatings(ratings, importance, careers) {
       unweightedCareersDiv.appendChild(careerRow);
   });
 
-  document.getElementById(`career_trait_${Current_Trait}`).style.display = 'none';
+  document.getElementById(`career_trait_${Current_Career}`).style.display = 'none';
   document.getElementById('result').style.display = 'block';
 }
