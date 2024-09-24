@@ -10,6 +10,8 @@ let DEFAULT_TRAITS = 10;
 let Current_Career = 1;
 let Current_Trait = 1;
 
+let init = false;
+
 (function() {
   "use strict";
 
@@ -275,14 +277,22 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   document.querySelector('.btn-get-started').addEventListener('click', function(event) {
-    populateCareersForm();
-    document.getElementById('team').style.display = 'none';
-    document.getElementById('faq').style.display = 'block';
-    document.getElementById('career_qns').style.display = 'block';
-    window.scrollTo({
-      top: document.getElementById('faq').offsetTop,
-      behavior: 'smooth'
-    });
+    if (!init) {
+      init = true;
+      populateCareersForm();
+      document.getElementById('team').style.display = 'none';
+      document.getElementById('faq').style.display = 'block';
+      document.getElementById('career_qns').style.display = 'block';
+      window.scrollTo({
+        top: document.getElementById('faq').offsetTop,
+        behavior: 'smooth'
+      });
+    } else {
+      window.scrollTo({
+        top: document.getElementById('faq').offsetTop,
+        behavior: 'smooth'
+      });
+    }
   });
 
   document.getElementById('add-career').addEventListener('click', addCareerInput);
@@ -712,6 +722,6 @@ function calculateAndDisplayRatings(ratings, importance, careers) {
       unweightedCareersDiv.appendChild(careerRow);
   });
 
-  document.getElementById(`career_trait_${DEFAULT_CAREERS}`).style.display = 'none';
+  document.getElementById(`career_trait_${Current_Trait}`).style.display = 'none';
   document.getElementById('result').style.display = 'block';
 }
